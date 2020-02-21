@@ -11,6 +11,7 @@ describe('First Api Tests', () => {
         expect(response.status).to.equal(statusCode.OK);
         expect(response.body).to.have.property('origin');
       });
+      
     it('Consume GET Service with query parameters', async () => {
         const query = {
           name: 'John',
@@ -23,24 +24,28 @@ describe('First Api Tests', () => {
         expect(response.status).to.equal(statusCode.OK);
         expect(response.body.args).to.eql(query);
       });
+
       it('Consume PUT Service', async()=>{
           const response= await agent.put('https://httpbin.org/put')
 
           expect(response.status).to.equal(statusCode.OK)
           expect(response.body).to.have.property('origin');
       })
+
       it('Consume PATCH Service', async()=>{
         const response= await agent.patch('https://httpbin.org/patch')
 
         expect(response.status).to.equal(statusCode.OK)
         expect(response.body).to.have.property('origin');
     })
+
     it('Consume DELETE Service', async()=>{
-        const response= await agent.delete('https://httpbin.org/delete')
+        const response= await agent.del('https://httpbin.org/delete')
 
         expect(response.status).to.equal(statusCode.OK)
         expect(response.body).to.have.property('origin');
     })
+
     it('Consume HEAD Service', async()=>{
         const response= await agent.head('https://httpbin.org/get')
 
