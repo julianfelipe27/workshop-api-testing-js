@@ -16,7 +16,6 @@ describe('Github Api Test', () => {
       expect(response.body.description).equal('This is a Workshop about Api Testing in JavaScript');
     });
   });
-  
   it('Via OAuth2 Tokens by parameter', () => agent.get(`${urlBase}/repos/${githubUserName}/${repository}`)
     .query(`access_token=${process.env.ACCESS_TOKEN}`)
     .set('User-Agent', 'agent')
